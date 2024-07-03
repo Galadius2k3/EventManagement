@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Place Order</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+<section layout:fragment="content" class="container mt-5">
+<h1>Place Your Order</h1>
+<form th:action="@{/order/submit}" method="post">
+    <div class="mb-3">
+        <label for="customerName" class="form-label">Your Name:</label>
+        <input type="text" id="customerName" name="customerName" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label for="phoneNumber" class="form-label">Phone Number:</label>
+        <input type="text" id="phoneNumber" name="phoneNumber" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email:</label>
+        <input type="email" id="email" name="email" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label for="notes" class="form-label">Notes:</label>
+        <textarea id="notes" name="notes" class="form-control" rows="3"></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="paymentMethod" class="form-label">Payment Method:</label>
+        <select id="paymentMethod" name="paymentMethod" class="form-select" required>
+            <option value="pay_by_cash">Pay by cash</option>
+            <option value="momo">Momo</option>
+            <option value="Banking"></option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-danger">Submit Order</button>
+    <a href="/ticket" class="btn btn-danger">Back</a>
+</form>
+
+    <div style="margin-top: 5px">
+        <div>PAY BY CASH: you will pay at the entry of the events.</div>
+        <div>MOMO: pay by 0815195297.</div>
+        <div>BANKING:</div>
+        <div  style="margin-bottom: 60px; text-align: center;">
+        <img src="https://i.ibb.co/Mps7KvM/download.jpg">
+        </div>
+    </div>
+</section>
+
+
+</body>
+</html>
